@@ -69,7 +69,8 @@ class ViewController: UIViewController, ARSCNViewDelegate{
         ball.name = "basketball"
         // controls energy that's lost when 2 objects collide; bouncing from backboard
         body.restitution = 0.2
-        ball.physicsBody?.applyForce(SCNVector3(orientation.x * power, orientation.y * power, orientation.z * power), asImpulse: true)
+        ball.physicsBody?.applyForce(SCNVector3(orientation.x * power, orientation.y * 2 * power, orientation.z * power / 2), asImpulse: true)
+        ball.rotation = SCNVector4(x: 1, y: 0, z: 0, w: 3 * .pi)
         self.sceneView.scene.rootNode.addChildNode(ball)
     }
     
